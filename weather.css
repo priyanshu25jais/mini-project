@@ -1,0 +1,227 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url("image.webp.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow: auto;
+  animation: fadeInBackground 1s ease-in-out;
+}
+
+@keyframes fadeInBackground {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+.container {
+  width: 90%;
+  max-width: 900px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.411);
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+  height: auto;
+  animation: slideIn 1s ease-out;
+}
+
+@keyframes slideIn {
+  0% {
+      transform: translateY(100%);
+      opacity: 0;
+  }
+  100% {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+
+.weather-input {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  flex-shrink: 0;
+  animation: fadeIn 1s ease-out;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  background-color: #beddda76;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.input-group:hover {
+  transform: scale(1.05);
+}
+
+#userLocation {
+  width: 80%;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
+}
+
+#userLocation:focus {
+  border-color: #007bff;
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+  transform: scale(1.1);
+}
+
+
+.weather-details {
+  text-align: center;
+  padding: 20px;
+  flex-grow: 1;
+  animation: fadeIn 1s ease-out;
+  
+  /* Ensures the content inside is centered both horizontally and vertically */
+  display: flex;
+  justify-content: center; /* Aligns the image horizontally */
+  align-items: center; /* Aligns the image vertically */
+  flex-direction: column; /* Ensures the image and other content stack vertically if needed */
+  
+}
+
+
+.weatherIcon {
+  width: 100px; 
+  height: 100px; 
+ 
+  background-repeat: no-repeat; 
+
+}
+
+.temperature {
+  font-size: 2.5rem;
+  margin-top: 10px;
+  animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+  0% {
+      opacity: 0;
+      transform: translateY(10px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.feelsLike, .description, .date, .city {
+  font-size: 1.2rem;
+  margin-top: 5px;
+  animation: fadeInUp 1s ease-out;
+}
+
+.weather-output {
+  padding: 20px;
+  flex-shrink: 0;
+  animation: fadeIn 1s ease-out;
+}
+
+.heading {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  text-align: center;
+  animation: fadeInUp 1s ease-out;
+}
+
+.highlights {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  animation: fadeInUp 1s ease-out;
+}
+
+.highlights div {
+  text-align: center;
+  background-color: #ffffffd8;
+  padding: 15px;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.highlights div:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.highlights h1 {
+  font-size: 1.5rem;
+  margin-top: 10px;
+}
+
+.highlights i {
+  font-size: 2rem;
+}
+
+.sun {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+}
+
+.sun p {
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .highlights {
+      grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 500px) {
+  .highlights {
+      grid-template-columns: 1fr;
+  }
+  .input-group {
+      flex-direction: column;
+      align-items: stretch;
+  }
+  #userLocation {
+      width: 100%;
+      margin-bottom: 10px;
+  }
+}
+
+
+
