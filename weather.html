@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Weather App</title>
   <link rel="stylesheet" href="weather.css">
-  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
@@ -13,7 +12,9 @@
     <div class="weather-input">
       <div class="input-group">
         <input type="text" id="userLocation" placeholder="Search for Places...">
-        <button onclick="findUserLocation()">Search</button>
+        <button onclick="findUserLocation()">
+          <i class="fa fa-search"></i> <!-- Search Icon -->
+        </button>
       </div>
     </div>
 
@@ -46,13 +47,11 @@
         <div class="sun">
           <span>
             <i class="fa-solid fa-sun"></i>
-            <!-- <h1 class="SRValue"></h1> -->
             <p><h1 class="SRValue"></h1>Sunrise</p>
           </span>
           <span>
             <i class="fa-regular fa-sun"></i>
-            <!-- <h1 class="SSValue"></h1> -->
-            <p><h1 class="SSValue"></h1> Sunset</p>
+            <p><h1 class="SSValue"></h1>Sunset</p>
           </span>
         </div>
 
@@ -63,7 +62,6 @@
         </div>
 
         <div class="uv-index">
-          <!-- <i class="fa-solid fa-bacon"></i> -->
           <i class="fa-solid fa-eye-low-vision"></i>
           Visibility
           <h1 class="UVValue"></h1>
@@ -75,9 +73,12 @@
           <h1 class="PValue"></h1>
         </div>
       </div>
+    </div>
 
-      <br />
-     
+    <div class="weather-recommendations">
+      <h2>Recommendations</h2>
+      <div id="recommendationText"></div>
+    </div>
   </div>
 
   <script defer src="weather.js"></script>

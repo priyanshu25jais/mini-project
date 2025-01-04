@@ -27,7 +27,7 @@ body {
   width: 90%;
   max-width: 900px;
   padding: 20px;
-  background-color: rgba(255, 255, 255, 0.411);
+  background-color: rgba(255, 255, 255, 0.7);
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   margin: 20px;
@@ -65,7 +65,7 @@ body {
   max-width: 500px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   padding: 10px;
-  background-color: #beddda76;
+  background-color: #f0f4f7;
   border-radius: 10px;
   transition: transform 0.3s ease;
 }
@@ -103,28 +103,33 @@ button:hover {
   transform: scale(1.1);
 }
 
-
 .weather-details {
   text-align: center;
   padding: 20px;
   flex-grow: 1;
   animation: fadeIn 1s ease-out;
   
-  /* Ensures the content inside is centered both horizontally and vertically */
+  /* Center content */
   display: flex;
-  justify-content: center; /* Aligns the image horizontally */
-  align-items: center; /* Aligns the image vertically */
-  flex-direction: column; /* Ensures the image and other content stack vertically if needed */
+  justify-content: center; 
+  align-items: center; 
+  flex-direction: column; 
   
+  background-color: rgba(255, 255, 255, 0.8); 
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); 
 }
-
 
 .weatherIcon {
   width: 100px; 
   height: 100px; 
- 
   background-repeat: no-repeat; 
+  animation: spin 4s linear infinite; /* Added spin animation */
+}
 
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 .temperature {
@@ -190,6 +195,7 @@ button:hover {
 
 .highlights i {
   font-size: 2rem;
+  color: #007bff;
 }
 
 .sun {
@@ -201,6 +207,53 @@ button:hover {
 
 .sun p {
   margin: 0;
+}
+
+.weather-recommendations {
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-top: 20px;
+  animation: bounceIn 1s ease-out; /* Added bounceIn animation */
+}
+
+@keyframes bounceIn {
+  0% {
+      transform: scale(0.5);
+      opacity: 0;
+  }
+  60% {
+      transform: scale(1.1);
+      opacity: 1;
+  }
+  100% {
+      transform: scale(1);
+  }
+}
+
+.weather-recommendations h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.weather-recommendations div {
+  font-size: 1.2rem;
+  font-weight: bold;
+  animation: pulse 2s infinite; /* Added pulse animation */
+}
+
+@keyframes pulse {
+  0% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(1.1);
+  }
+  100% {
+      transform: scale(1);
+  }
 }
 
 @media (max-width: 768px) {
@@ -222,6 +275,7 @@ button:hover {
       margin-bottom: 10px;
   }
 }
+
 
 
 

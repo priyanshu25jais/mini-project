@@ -1,5 +1,3 @@
-
-
 const userLocation = document.getElementById("userLocation");
 const weatherIcon = document.querySelector(".weatherIcon");
 const temperature = document.querySelector(".temperature");
@@ -14,6 +12,7 @@ const SSValue = document.querySelector(".SSValue");
 const CValue = document.querySelector(".cValue");
 const UVValue = document.querySelector(".UVValue");
 const PValue = document.querySelector(".PValue");
+const recommendationText = document.getElementById("recommendationText");
 
 const WEATHER_API_ENDPOINT = 'https://api.openweathermap.org/data/2.5/weather?appid=bbbbb2307745e1d93475723380f32246&units=metric&q=';
 
@@ -25,12 +24,11 @@ function findUserLocation() {
         alert(data.message);
         return;
       }
-      console.log(data)
+      console.log(data);
       // Display city and country
       city.innerHTML = `${data.name}, ${data.sys.country}`;
 
       // Weather icon
-      // weatherIcon.style.backgroundImage = `url(https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png)`;
       weatherIcon.style.backgroundImage = `url("https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png")`;
 
       // Temperature and feels like
@@ -60,18 +58,31 @@ function findUserLocation() {
       const timeOptions = { hour: "numeric", minute: "numeric", hour12: true };
       SRValue.innerHTML = new Date(data.sys.sunrise * 1000).toLocaleTimeString("en-US", timeOptions);
       SSValue.innerHTML = new Date(data.sys.sunset * 1000).toLocaleTimeString("en-US", timeOptions);
-     
 
-      // UVValue.innerHTML=`${data.visibility}`
       // Convert visibility from meters to kilometers
-const visibilityInKm = data.visibility / 1000;
-
-// Update the UVValue with the visibility in kilometers
-UVValue.innerHTML = `${visibilityInKm.toFixed(1)} km`; // Rounds to 1 decimal place
-
+      const visibilityInKm = data.visibility / 1000;
+      UVValue.innerHTML = `${visibilityInKm.toFixed(1)} km`;
 
       // Clouds
       CValue.innerHTML = `${data.clouds.all}%`;
+
+      // Weather recommendations
+      const weatherConditions = data.weather[0].main.toLowerCase();
+      const temp = data.main.temp;
+
+      if (temp < 10) {
+        recommendationText.innerHTML = "🥶 Extreme cold! Wear very warm clothes and stay indoors if possible!";
+      } else if (temp < 20) {
+        recommendationText.innerHTML = "❄️ It's cold outside. Wear warm clothes!";
+      } else if (temp >= 40) {
+        recommendationText.innerHTML = "🔥 Extreme heat! Stay hydrated and avoid going out in the sun!";
+      } else if (temp >= 30 || weatherConditions.includes("clear")) {
+        recommendationText.innerHTML = "☀️ It's hot outside. Make sure to drink plenty of water!";
+      } else if (weatherConditions.includes("rain")) {
+        recommendationText.innerHTML = "🌧️ It's raining outside. Don't forget your raincoat and umbrella!";
+      } else {
+        recommendationText.innerHTML = "😊 Weather is fine!";
+      }
     })
     .catch((error) => console.error("Error fetching weather data:", error));
 }
