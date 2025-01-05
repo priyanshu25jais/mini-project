@@ -70,18 +70,32 @@ function findUserLocation() {
       const weatherConditions = data.weather[0].main.toLowerCase();
       const temp = data.main.temp;
 
-      if (temp < 10) {
-        recommendationText.innerHTML = "🥶 Extreme cold! Wear very warm clothes and stay indoors if possible!";
-      } else if (temp < 20) {
+      if (temp < 10) { 
+        recommendationText.innerHTML = "🥶 Extreme cold! Wear very warm clothes and stay indoors if possible!"; 
+      }
+      else if (temp < 20) {
         recommendationText.innerHTML = "❄️ It's cold outside. Wear warm clothes!";
-      } else if (temp >= 40) {
+      }
+      else if (temp >= 40) {
         recommendationText.innerHTML = "🔥 Extreme heat! Stay hydrated and avoid going out in the sun!";
-      } else if (temp >= 30 || weatherConditions.includes("clear")) {
+      }
+      else if (temp >= 30 || weatherConditions.includes("clear")) { 
         recommendationText.innerHTML = "☀️ It's hot outside. Make sure to drink plenty of water!";
-      } else if (weatherConditions.includes("rain")) {
-        recommendationText.innerHTML = "🌧️ It's raining outside. Don't forget your raincoat and umbrella!";
-      } else {
-        recommendationText.innerHTML = "😊 Weather is fine!";
+      }
+      else if (weatherConditions.includes("rain")) {
+        recommendationText.innerHTML = "🌧️ It's raining outside. Don't forget your raincoat and umbrella!"; 
+      } 
+      else if (weatherConditions.includes("smoke")) {
+        recommendationText.innerHTML = "🚫 Avoid outdoor activities. Keep windows and doors closed to avoid smoke inhalation. Use air purifiers indoors if possible.";
+      }
+      else if (weatherConditions.includes("cloudy")) {
+        recommendationText.innerHTML = "☁️ It's cloudy. Perfect weather for a walk or jog; don't forget a light jacket."; 
+      } 
+      else if (weatherConditions.includes("fog")) {
+        recommendationText.innerHTML = "🌫️ Drive carefully; turn on your fog lights. Avoid outdoor exercise; fog can increase respiratory issues.";
+      }
+      else {
+       recommendationText.innerHTML = "😊 Weather is fine!";
       }
     })
     .catch((error) => console.error("Error fetching weather data:", error));

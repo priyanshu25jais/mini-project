@@ -2,16 +2,31 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-image: url("image.webp.jpg");
+  background-image: url("weather1.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   overflow: auto;
   animation: fadeInBackground 1s ease-in-out;
+}
+
+.header {
+   width: 50%;
+   height: 50px;
+   text-align: center;
+   padding: 10px 0;
+   background-color: rgba(0, 0, 0, 0.7);
+   color: white;
+   font-size: 0.8rem;
+   border-bottom: 2px solid #007bff;
+   margin: 0 auto;
 }
 
 @keyframes fadeInBackground {
@@ -24,13 +39,13 @@ body {
 }
 
 .container {
-  width: 90%;
-  max-width: 900px;
-  padding: 20px;
+  width: 100%;
+  max-width: 1200px;
+  padding: 40px;
   background-color: rgba(255, 255, 255, 0.7);
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  margin: 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  margin: 40px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -53,7 +68,7 @@ body {
 .weather-input {
   display: flex;
   justify-content: center;
-  padding: 20px;
+  padding: 40px;
   flex-shrink: 0;
   animation: fadeIn 1s ease-out;
 }
@@ -62,11 +77,11 @@ body {
   display: flex;
   align-items: center;
   width: 100%;
-  max-width: 500px;
+  max-width: 800px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  padding: 10px;
+  padding: 20px;
   background-color: #f0f4f7;
-  border-radius: 10px;
+  border-radius: 20px;
   transition: transform 0.3s ease;
 }
 
@@ -75,12 +90,13 @@ body {
 }
 
 #userLocation {
-  width: 80%;
-  padding: 10px;
-  font-size: 16px;
+  width: 100%;
+  padding: 20px;
+  font-size: 18px;
   border: 2px solid #ccc;
-  border-radius: 5px;
+  border-radius: 10px;
   transition: border-color 0.3s ease;
+  margin-bottom: 10px;
 }
 
 #userLocation:focus {
@@ -88,11 +104,11 @@ body {
 }
 
 button {
-  padding: 10px 15px;
+  padding: 15px 20px;
   background-color: #007bff;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
   margin-left: 10px;
   transition: background-color 0.3s ease, transform 0.2s ease;
@@ -105,26 +121,25 @@ button:hover {
 
 .weather-details {
   text-align: center;
-  padding: 20px;
+  padding: 40px;
   flex-grow: 1;
   animation: fadeIn 1s ease-out;
-  
-  /* Center content */
   display: flex;
-  justify-content: center; 
-  align-items: center; 
-  flex-direction: column; 
-  
-  background-color: rgba(255, 255, 255, 0.8); 
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); 
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* background-color: rgba(255, 255, 255, 0.8); */
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  border: 2px solid #007bff; /* Added border */
+  background-image: url("weather.png"); ;
 }
 
 .weatherIcon {
-  width: 100px; 
-  height: 100px; 
-  background-repeat: no-repeat; 
-  animation: spin 4s linear infinite; /* Added spin animation */
+  width: 150px;
+  height: 150px;
+  background-repeat: no-repeat;
+  animation: spin 4s linear infinite;
 }
 
 @keyframes spin {
@@ -133,8 +148,8 @@ button:hover {
 }
 
 .temperature {
-  font-size: 2.5rem;
-  margin-top: 10px;
+  font-size: 3rem;
+  margin-top: 20px;
   animation: fadeInUp 1s ease-out;
 }
 
@@ -150,20 +165,20 @@ button:hover {
 }
 
 .feelsLike, .description, .date, .city {
-  font-size: 1.2rem;
-  margin-top: 5px;
+  font-size: 1.5rem;
+  margin-top: 10px;
   animation: fadeInUp 1s ease-out;
 }
 
 .weather-output {
-  padding: 20px;
+  padding: 40px;
   flex-shrink: 0;
   animation: fadeIn 1s ease-out;
 }
 
 .heading {
-  font-size: 1.8rem;
-  margin-bottom: 20px;
+  font-size: 2rem;
+  margin-bottom: 30px;
   text-align: center;
   animation: fadeInUp 1s ease-out;
 }
@@ -171,16 +186,25 @@ button:hover {
 .highlights {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 30px;
   animation: fadeInUp 1s ease-out;
 }
 
 .highlights div {
   text-align: center;
-  background-color: #ffffffd8;
-  padding: 15px;
-  border-radius: 10px;
+  background-color: #011011;
+  color: whitesmoke;
+  padding: 30px;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  margin-bottom: 15px;
+
 }
 
 .highlights div:hover {
@@ -188,13 +212,43 @@ button:hover {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
+.humidity {
+  border: 5px solid #007bff;
+  margin-bottom: 15px;
+}
+
+.wind-speed {
+  border: 5px solid #28a745;
+  margin-bottom: 15px;
+}
+
+.sun {
+  border: 5px solid #ffc107;
+  margin-bottom: 15px;
+}
+
+.clouds {
+  border: 5px solid #6c757d;
+  margin-bottom: 15px;
+}
+
+.uv-index {
+  border: 5px solid #17a2b8;
+  margin-bottom: 15px;
+}
+
+.pressure {
+  border: 5px solid #dc3545;
+  margin-bottom: 15px;
+}
+
 .highlights h1 {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   margin-top: 10px;
 }
 
 .highlights i {
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: #007bff;
 }
 
@@ -202,7 +256,7 @@ button:hover {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
 }
 
 .sun p {
@@ -210,13 +264,13 @@ button:hover {
 }
 
 .weather-recommendations {
-  padding: 20px;
+  padding: 40px;
   background-color: #f8f9fa;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
   text-align: center;
-  margin-top: 20px;
-  animation: bounceIn 1s ease-out; /* Added bounceIn animation */
+  margin-top: 40px;
+  animation: bounceIn 1s ease-out;
 }
 
 @keyframes bounceIn {
@@ -234,14 +288,15 @@ button:hover {
 }
 
 .weather-recommendations h2 {
-  font-size: 1.5rem;
-  margin-bottom: 15px;
+  font-size: 1.8rem;
+  margin-bottom: 30px;
 }
 
 .weather-recommendations div {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: bold;
-  animation: pulse 2s infinite; /* Added pulse animation */
+  color: #0f4575;
+  animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
@@ -258,24 +313,17 @@ button:hover {
 
 @media (max-width: 768px) {
   .highlights {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr
+    } 
   }
-}
-
-@media (max-width: 500px) {
-  .highlights {
-      grid-template-columns: 1fr;
-  }
-  .input-group {
-      flex-direction: column;
-      align-items: stretch;
-  }
-  #userLocation {
-      width: 100%;
-      margin-bottom: 10px;
-  }
-}
-
-
-
+  
+  @media (max-width: 500px) { 
+    .highlights {
+       grid-template-columns: 1fr;
+       }
+        .input-group { 
+          flex-direction: column;
+           align-items: stretch; 
+          }
+        }
 
